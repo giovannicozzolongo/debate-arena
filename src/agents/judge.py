@@ -23,7 +23,7 @@ Format your response EXACTLY like this:
 
 (3-4 sentences explaining your decision)
 
-**Score: [PRO score]/10 — [CON score]/10**
+**Score: [PRO score]/10 vs [CON score]/10**
 
 Be fair. Judge based on argument quality, not on which position you personally agree with."""
 

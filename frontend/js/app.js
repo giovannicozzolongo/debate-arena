@@ -104,7 +104,7 @@ async function startDebate() {
 
                 switch (ev.type) {
                     case "round_start":
-                        setStatus(`Round ${ev.round} — PRO is arguing...`);
+                        setStatus(`Round ${ev.round}, PRO is arguing...`);
                         break;
 
                     case "pro_chunk":
@@ -113,7 +113,7 @@ async function startDebate() {
 
                     case "con_chunk":
                         if (!$(`#con-round-${ev.round}`)) {
-                            setStatus(`Round ${ev.round} — CON is responding...`);
+                            setStatus(`Round ${ev.round}, CON is responding...`);
                         }
                         appendChunk("con", ev.round, ev.content);
                         break;

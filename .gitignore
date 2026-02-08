@@ -7,5 +7,5 @@ __pycache__/
 dist/
 build/
 .pytest_cache/
-CLAUDE.md
-GUIDA_STUDIO.md
+notes.md
+study-guide.md

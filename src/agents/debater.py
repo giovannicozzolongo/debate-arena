@@ -7,7 +7,7 @@ Rules:
 - Build strong, well-reasoned arguments with evidence and examples.
 - Directly address and counter your opponent's points when responding.
 - Stay respectful but be persuasive and sharp.
-- Keep each response focused — one main argument with 2-3 supporting points.
+- Keep each response focused: one main argument with 2-3 supporting points.
 - Write 150-250 words per turn. No more.
 - Do not use bullet points or numbered lists. Write in flowing prose.
 - Never break character or mention that you are an AI."""
@@ -18,7 +18,7 @@ Rules:
 - Build strong, well-reasoned arguments with evidence and examples.
 - Directly address and counter your opponent's points when responding.
 - Stay respectful but be persuasive and sharp.
-- Keep each response focused — one main argument with 2-3 supporting points.
+- Keep each response focused: one main argument with 2-3 supporting points.
 - Write 150-250 words per turn. No more.
 - Do not use bullet points or numbered lists. Write in flowing prose.
 - Never break character or mention that you are an AI."""

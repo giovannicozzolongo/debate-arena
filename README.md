@@ -13,7 +13,7 @@ Two AI agents debate any topic in real time. A third AI judges who wins.
 3. They go back and forth for multiple rounds, responding to each other's points
 4. A **Judge** agent evaluates the full debate and picks a winner
 
-Everything streams in real time — you watch the arguments appear word by word.
+Everything streams in real time. You watch the arguments appear word by word.
 
 ## Architecture
 

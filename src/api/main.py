@@ -23,7 +23,7 @@ def _get_provider(name: str, byok: str | None):
     cls, default_key = providers[name]
     key = byok or default_key
     if not key:
-        raise ValueError(f"no API key for {name} — set it in .env or pass it in the request")
+        raise ValueError(f"no API key for {name}, set it in .env or pass it in the request")
     return cls(api_key=key)
 
 

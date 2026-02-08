@@ -24,6 +24,6 @@ def test_debate_missing_key():
         "/api/debate",
         json={"topic": "test", "provider": "anthropic"},
     )
-    # SSE stream — should contain error event
+    # SSE stream, should contain error event
     assert resp.status_code == 200
     assert "error" in resp.text

@@ -59,7 +59,7 @@ async def test_debater_history_builds():
 
 @pytest.mark.asyncio
 async def test_judge_evaluate():
-    provider = FakeProvider("## Verdict\n**Winner: PRO**\n**Score: 8/10 — 6/10**")
+    provider = FakeProvider("## Verdict\n**Winner: PRO**\n**Score: 8/10 vs 6/10**")
     judge = Judge(provider)
     rounds = [
         {"round": 1, "pro": "Pro argument", "con": "Con argument"},
