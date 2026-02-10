@@ -154,6 +154,22 @@ body {
     letter-spacing: 0.05em;
 }
 
+.setting input[type="number"] {
+    padding: 0.5rem 0.7rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 0.85rem;
+    font-family: inherit;
+    outline: none;
+    width: 70px;
+}
+
+.setting input[type="number"]:focus {
+    border-color: var(--accent);
+}
+
 .setting select,
 .setting input[type="password"] {
     padding: 0.5rem 0.7rem;
@@ -247,6 +263,22 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+}
+
+.arguments::-webkit-scrollbar {
+    width: 4px;
+}
+
+.arguments::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.arguments::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
 }
 
 .argument-card {

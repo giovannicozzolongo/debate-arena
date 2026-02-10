@@ -17,17 +17,19 @@ function addArgumentCard(side, round) {
     card.id = `${side}-round-${round}`;
     card.innerHTML = `<div class="argument-round">Round ${round}</div><span class="arg-text"></span>`;
     container.appendChild(card);
+    // auto-scroll the panel to the new card
+    container.scrollTop = container.scrollHeight;
 }
 
 function appendChunk(side, round, text) {
-    // create card on first chunk if it doesn't exist
     if (!$(`#${side}-round-${round}`)) {
         addArgumentCard(side, round);
     }
     const span = $(`#${side}-round-${round} .arg-text`);
     if (span) {
         span.textContent += text;
-        $(`#${side}-round-${round}`).scrollIntoView({ behavior: "smooth", block: "nearest" });
+        const container = $(`#${side}-arguments`);
+        container.scrollTop = container.scrollHeight;
     }
 }
 
@@ -55,7 +57,9 @@ async function startDebate() {
     }
 
     const provider = $("#provider-select").value;
-    const numRounds = parseInt($("#rounds-select").value);
+    const roundsRaw = parseInt($("#rounds-input").value) || 3;
+    const numRounds = Math.max(1, Math.min(10, roundsRaw));
+    $("#rounds-input").value = numRounds;
     const apiKey = $("#api-key-input").value.trim() || null;
 
     if (provider !== "groq" && !apiKey) {

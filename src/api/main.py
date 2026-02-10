@@ -1,4 +1,4 @@
-import json
+import re
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -9,7 +9,19 @@ from src.agents import Debater, Judge
 from src.providers import GroqProvider, AnthropicProvider, OpenAIProvider
 from src.config import GROQ_API_KEY, ANTHROPIC_API_KEY, OPENAI_API_KEY
 
-app = FastAPI(title="DebateArena")
+app = FastAPI(title="AI Debate Arena")
+
+BLOCKED_PATTERNS = re.compile(
+    r"pedophil|paedophil|pedofil|child\s*(abuse|porn|sex)|"
+    r"bestiality|zoophil|necrophil|incest|"
+    r"genocide\s+is\s+good|"
+    r"how\s+to\s+(kill|murder|rape|kidnap|bomb|poison)",
+    re.IGNORECASE,
+)
+
+
+def _topic_allowed(topic: str) -> bool:
+    return not BLOCKED_PATTERNS.search(topic)
 
 
 def _get_provider(name: str, byok: str | None):
@@ -28,6 +40,12 @@ def _get_provider(name: str, byok: str | None):
 
 
 async def _run_debate(req: DebateRequest):
+    if not _topic_allowed(req.topic):
+        yield {"data": DebateEvent(type="error", content="This topic is not suitable for debate. Please choose a different one.").model_dump_json()}
+        return
+
+    req.num_rounds = min(max(req.num_rounds, 1), 10)
+
     try:
         provider = _get_provider(req.provider, req.api_key)
     except ValueError as e:
