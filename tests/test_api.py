@@ -15,7 +15,7 @@ def test_health():
 def test_index_serves_html():
     resp = client.get("/")
     assert resp.status_code == 200
-    assert "DebateArena" in resp.text
+    assert "Debate Arena" in resp.text
 
 
 def test_debate_missing_key():
