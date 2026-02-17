@@ -68,11 +68,9 @@ async function startDebate() {
     // reset
     $("#pro-arguments").innerHTML = "";
     $("#con-arguments").innerHTML = "";
-    $("#verdict-content").innerHTML = "";
-    $("#verdict-section").style.display = "none";
-    $("#arena").style.display = "grid";
+    $("#verdict-content").innerHTML = '<p class="argument-placeholder">The judge will evaluate after all rounds are complete.</p>';
     $("#start-btn").disabled = true;
-    setStatus("Starting debate...");
+    setStatus("Validating topic...");
 
     const body = { topic, num_rounds: numRounds, provider };
     if (apiKey) body.api_key = apiKey;

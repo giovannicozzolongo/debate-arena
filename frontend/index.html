@@ -53,13 +53,15 @@
         </div>
 
         <!-- debate arena -->
-        <section class="arena" id="arena" style="display:none;">
+        <section class="arena" id="arena">
             <div class="debater-col pro-col">
                 <div class="debater-header">
                     <span class="debater-badge pro-badge">PRO</span>
                     <span class="debater-label">In Favor</span>
                 </div>
-                <div class="arguments" id="pro-arguments"></div>
+                <div class="arguments" id="pro-arguments">
+                    <div class="argument-placeholder">Waiting for topic...</div>
+                </div>
             </div>
 
             <div class="vs-divider">
@@ -71,17 +73,21 @@
                     <span class="debater-badge con-badge">CON</span>
                     <span class="debater-label">Against</span>
                 </div>
-                <div class="arguments" id="con-arguments"></div>
+                <div class="arguments" id="con-arguments">
+                    <div class="argument-placeholder">Waiting for topic...</div>
+                </div>
             </div>
         </section>
 
         <!-- judge verdict -->
-        <section class="verdict-section" id="verdict-section" style="display:none;">
+        <section class="verdict-section" id="verdict-section">
             <div class="verdict-header">
                 <span class="verdict-icon">&#9878;</span>
                 <h2>Judge's Verdict</h2>
             </div>
-            <div class="verdict-content" id="verdict-content"></div>
+            <div class="verdict-content" id="verdict-content">
+                <p class="argument-placeholder">The judge will evaluate after all rounds are complete.</p>
+            </div>
         </section>
 
         <!-- footer -->
