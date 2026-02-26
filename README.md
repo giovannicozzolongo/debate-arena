@@ -1,4 +1,4 @@
-# AI Debate Arena
+# Debate Arena
 
 Two AI agents debate any topic in real time. A third AI judges who wins.
 
