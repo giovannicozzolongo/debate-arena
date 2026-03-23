@@ -2,7 +2,7 @@
 
 Two AI agents debate any topic in real time. A third AI judges who wins.
 
-**[Try it live](https://ai-debate-arena-7vmr.onrender.com)** (free, no sign-up needed)
+**[Try it live](https://debate-arena-production-bdc0.up.railway.app)** (free, no sign-up needed)
 
 ![Python](https://img.shields.io/badge/python-3.11+-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
