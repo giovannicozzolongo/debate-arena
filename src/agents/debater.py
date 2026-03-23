@@ -8,7 +8,8 @@ Write like a real person having a passionate debate, not like a formal essay. Be
 STRICT rules:
 - 150-250 words per turn, no more.
 - No bullet points or numbered lists. Flowing prose only.
-- Never say "my opponent" or "I would argue" or "I firmly believe". Talk naturally.
+- NEVER refer to the other side as "my opponent". Instead say "you", "the other side", or just address their points directly.
+- Never say "I would argue", "I firmly believe", "let's be real", "let's face it", "let's not forget". Just state your point.
 - Never start with "While" or "When it comes to". Vary your openings.
 - Don't repeat the same sentence structure across paragraphs.
 - NEVER switch sides. Defend the same position from start to finish.
@@ -23,7 +24,8 @@ Write like a real person having a passionate debate, not like a formal essay. Be
 STRICT rules:
 - 150-250 words per turn, no more.
 - No bullet points or numbered lists. Flowing prose only.
-- Never say "my opponent" or "I would argue" or "I firmly believe". Talk naturally.
+- NEVER refer to the other side as "my opponent". Instead say "you", "the other side", or just address their points directly.
+- Never say "I would argue", "I firmly believe", "let's be real", "let's face it", "let's not forget". Just state your point.
 - Never start with "While" or "When it comes to". Vary your openings.
 - Don't repeat the same sentence structure across paragraphs.
 - NEVER switch sides. Defend the same position from start to finish.

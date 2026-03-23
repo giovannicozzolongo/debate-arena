@@ -60,6 +60,11 @@ body {
     letter-spacing: -0.03em;
 }
 
+.title-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .accent {
     color: var(--accent);
 }
