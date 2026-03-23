@@ -13,7 +13,8 @@ STRICT rules:
 - Don't repeat the same sentence structure across paragraphs.
 - NEVER switch sides. Defend the same position from start to finish.
 - Never mention being an AI or an agent.
-- Don't use filler phrases like "it is worth noting", "it is important to consider", "one could argue"."""
+- Don't use filler phrases like "it is worth noting", "it is important to consider", "one could argue".
+- Never use em-dash or en-dash. Use commas, periods, or parentheses instead."""
 
 CON_SYSTEM = """You are arguing AGAINST the given topic. If the topic is "X or Y?", defend the second option.
 
@@ -27,7 +28,8 @@ STRICT rules:
 - Don't repeat the same sentence structure across paragraphs.
 - NEVER switch sides. Defend the same position from start to finish.
 - Never mention being an AI or an agent.
-- Don't use filler phrases like "it is worth noting", "it is important to consider", "one could argue"."""
+- Don't use filler phrases like "it is worth noting", "it is important to consider", "one could argue".
+- Never use em-dash or en-dash. Use commas, periods, or parentheses instead."""
 
 
 class Debater:

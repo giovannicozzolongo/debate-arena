@@ -79,8 +79,11 @@ async def _run_debate(req: DebateRequest):
         if not valid:
             yield {"data": DebateEvent(type="error", content="This doesn't look like a debatable topic. Try a clear statement or question, e.g. \"Social media does more harm than good\".").model_dump_json()}
             return
-    except Exception:
-        pass  # if validation fails, let the debate proceed
+    except Exception as e:
+        msg = str(e)
+        if "rate_limit" in msg.lower() or "429" in msg:
+            yield {"data": DebateEvent(type="error", content="Service is busy right now. Please wait a minute and try again.").model_dump_json()}
+            return
 
     pro = Debater("pro", provider)
     con = Debater("con", provider)
@@ -97,24 +100,32 @@ async def _run_debate(req: DebateRequest):
 
         # PRO argues
         pro_chunks = []
-        async for chunk in pro.argue(req.topic, con_last):
-            pro_chunks.append(chunk)
-            yield {
-                "data": DebateEvent(
-                    type="pro_chunk", round=round_num, content=chunk
-                ).model_dump_json()
-            }
+        try:
+            async for chunk in pro.argue(req.topic, con_last):
+                pro_chunks.append(chunk)
+                yield {
+                    "data": DebateEvent(
+                        type="pro_chunk", round=round_num, content=chunk
+                    ).model_dump_json()
+                }
+        except Exception as e:
+            yield {"data": DebateEvent(type="error", content="Service is busy right now. Please wait a minute and try again.").model_dump_json()}
+            return
         pro_last = "".join(pro_chunks)
 
         # CON argues
         con_chunks = []
-        async for chunk in con.argue(req.topic, pro_last):
-            con_chunks.append(chunk)
-            yield {
-                "data": DebateEvent(
-                    type="con_chunk", round=round_num, content=chunk
-                ).model_dump_json()
-            }
+        try:
+            async for chunk in con.argue(req.topic, pro_last):
+                con_chunks.append(chunk)
+                yield {
+                    "data": DebateEvent(
+                        type="con_chunk", round=round_num, content=chunk
+                    ).model_dump_json()
+                }
+        except Exception:
+            yield {"data": DebateEvent(type="error", content="Service is busy right now. Please wait a minute and try again.").model_dump_json()}
+            return
         con_last = "".join(con_chunks)
 
         rounds.append({"round": round_num, "pro": pro_last, "con": con_last})
@@ -124,8 +135,12 @@ async def _run_debate(req: DebateRequest):
         }
 
     # judge
-    verdict = await judge.evaluate(req.topic, rounds)
-    yield {"data": DebateEvent(type="judge", content=verdict).model_dump_json()}
+    try:
+        verdict = await judge.evaluate(req.topic, rounds)
+        yield {"data": DebateEvent(type="judge", content=verdict).model_dump_json()}
+    except Exception:
+        yield {"data": DebateEvent(type="error", content="Service is busy right now. Please wait a minute and try again.").model_dump_json()}
+        return
     yield {"data": DebateEvent(type="done").model_dump_json()}
 
 
